@@ -38,25 +38,4 @@ class PostsController < ApplicationController
 
     redirect_to("/posts/index")
   end
-
-  def face_detection(data)
-    Curl.post("https://api.projectoxford.ai/face/v1.0/detect", [data] ) do |curl|
-    # Curl.post("https://api.projectoxford.ai/face/v1.0/detect", "{ url: '#{self.file.url}' }" ) do |curl|
-      curl.headers["Ocp-Apim-Subscription-Key"] = Rails.application.secrets.microsoft['face_api_key']
-      curl.headers["Content-Type"] = 'application/json'
-    end
-  end
-
-  def login
-
-    puts params[:file]
-    # response = face_detection(data)
-    # age = response.age
-    # puts age
-    # if age > 60 # rails string to int
-    #   return {'result': true}
-    # else
-    #   return {'result': false}
-    # end
-  end
 end
