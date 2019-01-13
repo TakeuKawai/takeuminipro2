@@ -13,8 +13,6 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-
-
   function detectFace() {
       var subscriptionKey = "9428b416c6024673b132a90d379e6a10"
       var uriBase =
@@ -44,7 +42,6 @@
           data: '{"url": ' + '"' + sourceImageUrl + '"}',
       })
       .done(function(data) {
-        alert(data instanceof Array);
         age = data[0]["faceAttributes"]["age"];
         if(age >= 24){
           $('#new-posts').attr("type", "submit");
@@ -59,6 +56,8 @@
     };
 
     function ImageClick() {
+      var canvas = document.getElementById('canvas');
+      var ctx = canvas.getContext('2d');
       var answer1 = prompt("1990年のオリコンシングルチャートの第1位は？")
       if(answer1 == "おどるポンポコリン"){
         alert("あと2問！");
@@ -82,13 +81,21 @@
         }
       }
       else{
-        for(i < )
+        var x, y;
+        for(y=0; y<2000; y+=10){
+          for(x=0; x<2000; x+=10){
+            if(x == y){
+              ctx.fillRect(x, y, 10, 10);
+              ctx.fillRect(500-x, y, 10, 10);
+            }
+
+          }
+        }
       }
     }
 
     var n = 20;
     function BlackJack(b){
-      firstCard = null;
       document.getElementById('continue').disabled = false;
         dealingCard = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
         firstCard = dealingCard[Math.floor(Math.random() * dealingCard.length)];
