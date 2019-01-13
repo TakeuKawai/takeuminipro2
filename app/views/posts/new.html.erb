@@ -1,3 +1,4 @@
+<canvas id = "canvas" id ="canvas"
 <div class="main posts-new">
   <div class="container">
     <h1 class="form-heading">投稿する</h1>
@@ -18,7 +19,17 @@
     </div>
         <!-- <input type="file" name="file"> -->
           Source image:<br><br>
+
           <img id="sourceImage" width="400" ondblclick="ImageClick();">
+            <input type="button" id="BlackJack" value = "Game start!" onclick = "BlackJack();">
+            <form name = "gameform">
+            <p id='firstCard'></p>
+            <p id='secondCard'></p>
+            </form>
+            <input type="button" id="pass" value ="パス" onclick="pass();">
+            <input type="button" id="continue" value= "続ける" onclick="disabled = true;">
+            <input type="button" value="次へ" onclick="newGame();">
+          <div>あと:<p id="restPoint"></p><input type= "hidden" id="restPoints" value="20"></div>
     </div>
   </div>
 </div>

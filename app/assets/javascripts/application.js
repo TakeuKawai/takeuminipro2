@@ -13,7 +13,8 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree
+
+
   function detectFace() {
       var subscriptionKey = "9428b416c6024673b132a90d379e6a10"
       var uriBase =
@@ -73,6 +74,7 @@
           }
           else{
             alert("違います")
+
           }
         }
         else{
@@ -80,6 +82,36 @@
         }
       }
       else{
-        alert("違います")
+        for(i < )
       }
+    }
+
+    var n = 20;
+    function BlackJack(b){
+      firstCard = null;
+      document.getElementById('continue').disabled = false;
+        dealingCard = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+        firstCard = dealingCard[Math.floor(Math.random() * dealingCard.length)];
+        document.getElementById('firstCard').innerHTML = firstCard;
+        $('#continue').off('click')
+        $('#continue').on('click',function(){
+          secondCard = dealingCard[Math.floor(Math.random() * dealingCard.length)];
+          document.getElementById('secondCard').innerHTML =secondCard;
+          balance =  secondCard - firstCard;
+          console.log(secondCard)
+          n = n-balance;
+          document.getElementById('restPoint').innerHTML = n;
+          if(n<=0){
+            alert("おめでとうございます");
+            $('#new-posts').attr("type", "submit");
+            $('#face-picture').attr("type", "hidden");
+            $('#face-pictures').attr("type", "hidden");
+        }
+        });
+    }
+
+    function newGame(){
+      document.gameform.reset();
+      rSecondCard = 0;
+      rFirstCard = 0;
     }
