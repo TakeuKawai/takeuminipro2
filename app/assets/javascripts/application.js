@@ -43,13 +43,16 @@
       })
       .done(function(data) {
         age = data[0]["faceAttributes"]["age"];
-        if(age >= 24){
+        gender = data[0]["faceAttributes"]["gender"];
+        if(age >= 22 && gender == "male"){
           $('#new-posts').attr("type", "submit");
           $('#face-picture').attr("type", "hidden");
           $('#face-pictures').attr("type", "hidden");
-          alert(age + '歳と判断されました')
+          alert(age + '歳で'+ gender + 'と判断されました')
+        }else if(age >= 22 && gender == "female" ){
+            alert(gender + 'ですよね！入れません！')
         }else {
-          alert(age + '歳ですよね！入れません！')
+            alert(age + '歳ですよね！入れません！')
         }
 
       });
